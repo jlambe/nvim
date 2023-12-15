@@ -21,10 +21,11 @@ require('lazy').setup({
         tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     -- Theme
     -- https://github.com/catppuccin/nvim
     { 'catppuccin/nvim', name = 'catppuccin', priority = 1000, opts = {
-        flavour = 'mocha',
+        flavour = 'latte',
         integrations = {
             cmp = true,
             gitsigns = false,
@@ -60,6 +61,11 @@ require('lazy').setup({
             }
         },
     } },
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+    { 'lewis6991/gitsigns.nvim' },
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',

@@ -4,6 +4,19 @@ lsp_zero.on_attach(function(client, bufnr)
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
     lsp_zero.default_keymaps({buffer = bufnr})
+
+    -- Rename
+    vim.keymap.set('n', '<F6>', function ()
+        vim.lsp.buf.rename()
+    end, { buffer = bufnr })
+    -- Code action
+    vim.keymap.set('n', '<C-x>', function ()
+        vim.lsp.buf.code_action()
+    end, { buffer = bufnr })
+    -- Format
+    vim.keymap.set('n', '<F7>', function ()
+        vim.lsp.buf.format()
+    end, { buffer = bufnr })
 end)
 
 require('mason').setup({})
@@ -12,11 +25,6 @@ require('mason-lspconfig').setup({
     ensure_installed = { 'ansiblels', 'clangd', 'cssls', 'html', 'jsonls', 'lua_ls', 'phpactor', 'rust_analyzer', 'tsserver', 'yamlls' },
     handlers = {
         lsp_zero.default_setup,
-        phpactor = function ()
-            require('lspconfig').phpactor.setup({
-                ["indexer.exclude_patterns"] = "",
-            })
-        end
     },
 })
 

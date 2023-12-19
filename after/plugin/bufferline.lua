@@ -3,9 +3,15 @@ local bufferline = require('bufferline')
 
 bufferline.setup({
     options = {
-        mode = 'tabs',
+        mode = 'buffers',
+        themable = true,
+        indicator = {
+            style = 'none',
+        },
+        color_icons = false,
+        show_buffer_icons = false,
+        separator_style = { '', '' },
     },
-    highlights = require('catppuccin.groups.integrations.bufferline').get(),
 })
 
 -- Navigate to next buffer tab

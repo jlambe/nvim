@@ -17,6 +17,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     {
+        'folke/tokyonight.nvim',
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+    {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' }
@@ -29,55 +35,9 @@ require('lazy').setup({
             'nvim-lua/plenary.nvim'
         }
     },
-    -- Theme
-    -- https://github.com/catppuccin/nvim
-    {
-        'catppuccin/nvim',
-        name = 'catppuccin',
-        lazy = true,
-        priority = 1000,
-        opts = {
-            flavour = 'latte',
-            integrations = {
-                cmp = true,
-                bufferline = true,
-                gitsigns = true,
-                nvimtree = false,
-                treesitter = true,
-                notify = false,
-                mason = true,
-                native_lsp = {
-                    enabled = true,
-                    virtual_text = {
-                        errors = { "italic" },
-                        hints = { "italic" },
-                        warnings = { "italic" },
-                        information = { "italic" },
-                    },
-                    underlines = {
-                        errors = { "underline" },
-                        hints = { "underline" },
-                        warnings = { "underline" },
-                        information = { "underline" },
-                    },
-                    inlay_hints = {
-                        background = true,
-                    },
-                },
-                telescope = {
-                    enabled = true,
-                }
-            },
-            color_overrides = {
-                latte = {
-                    overlay0 = '#9CA0B0'
-                }
-            },
-        }
-    },
     {
         'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' }
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
     { 'lewis6991/gitsigns.nvim' },
     {
@@ -100,7 +60,6 @@ require('lazy').setup({
         'akinsho/bufferline.nvim',
         version = '*',
         dependencies = 'nvim-tree/nvim-web-devicons',
-        after = 'catppuccin',
     },
     {
         'nvim-treesitter/nvim-treesitter',

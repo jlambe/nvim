@@ -4,7 +4,7 @@ return {
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         opts = {
             options = {
-                theme = 'tokyonight'
+                theme = 'catppuccin'
             }
         }
     },
@@ -35,6 +35,7 @@ return {
     {
         'akinsho/bufferline.nvim',
         version = '*',
+        after = 'catppuccin',
         event = 'VeryLazy',
         dependencies = 'nvim-tree/nvim-web-devicons',
         opts = {

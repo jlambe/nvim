@@ -1,13 +1,24 @@
 return {
-    'folke/tokyonight.nvim',
+    'catppuccin/nvim',
+    name = 'catppuccin',
     lazy = false,
     priority = 1000,
     opts = {
-        style = 'day',
-        terminal_colors = true,
-        lualine_bold = true,
+        flavour = 'latte',
+        integrations = {
+            cmp = true,
+            gitsigns = true,
+            mason = true,
+            native_lsp = {
+                enabled = true,
+            },
+            treesitter = true,
+            telescope = {
+                enabled = true,
+            },
+        }
     },
     config = function()
-        vim.cmd.colorscheme('tokyonight-day')
+        vim.cmd.colorscheme('catppuccin-latte')
     end
 }

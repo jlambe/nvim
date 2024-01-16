@@ -4,7 +4,8 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
-        flavour = 'latte',
+        flavour = 'mocha',
+        transparent_background = true,
         integrations = {
             cmp = true,
             gitsigns = true,
@@ -19,6 +20,9 @@ return {
         }
     },
     config = function()
-        vim.cmd.colorscheme('catppuccin-latte')
+        vim.cmd.colorscheme('catppuccin-mocha')
+
+        vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+        vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
     end
 }

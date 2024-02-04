@@ -33,41 +33,6 @@ return {
         }
     },
     {
-        'akinsho/bufferline.nvim',
-        version = '*',
-        after = 'catppuccin',
-        event = 'VeryLazy',
-        dependencies = 'nvim-tree/nvim-web-devicons',
-        opts = {
-            options = {
-                mode = 'tabs',
-                themable = true,
-                indicator = {
-                    style = 'none',
-                },
-                color_icons = false,
-                show_buffer_icons = false,
-                separator_style = { '', '' },
-            },
-        },
-        keys = {
-            { '<TAB>', function() require('bufferline').cycle(1) end, desc = 'Go to bufferline next tab.' },
-            { '<S-TAB>', function() require('bufferline').cycle(-1) end, desc = 'Go to bufferline previous tab.' },
-            { '<leader-cl>', function() require('bufferline').close_others() end, desc = 'Close bufferline others tabs.' },
-        },
-        config = function(_, opts)
-            require("bufferline").setup(opts)
-            -- Fix bufferline when restoring a session
-            vim.api.nvim_create_autocmd("BufAdd", {
-                callback = function()
-                    vim.schedule(function()
-                        pcall(nvim_bufferline)
-                    end)
-                end,
-            })
-        end,
-    },
-    {
         'tpope/vim-fugitive',
     }
 }

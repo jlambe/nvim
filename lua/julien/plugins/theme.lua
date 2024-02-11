@@ -13,6 +13,7 @@ return {
             native_lsp = {
                 enabled = true,
             },
+            notify = true,
             treesitter = true,
             telescope = {
                 enabled = true,

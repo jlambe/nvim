@@ -34,6 +34,15 @@ return {
     },
     {
         'tpope/vim-fugitive',
+    },
+    {
+        'rcarriga/nvim-notify',
+        config = function()
+            require('notify').setup({
+                background_colour = '#ffffff'
+            })
+
+            vim.notify = require('notify')
+        end
     }
 }
-

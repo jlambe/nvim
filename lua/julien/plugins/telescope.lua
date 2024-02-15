@@ -53,7 +53,8 @@ return {
                     })
                 end,
                 desc = 'Open telescope file browser.'
-            }
+            },
+            { '<leader>gs', function() require('telescope.builtin').git_status() end, desc = 'Open telescope git status.' },
         }
     },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },

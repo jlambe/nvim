@@ -44,6 +44,13 @@ return {
                 vim.keymap.set('n', '<F7>', function()
                     vim.lsp.buf.format()
                 end, { buffer = bufnr })
+                -- Diagnostics Movements
+                vim.keymap.set('n', '<leader>dj', function ()
+                    vim.diagnostic.goto_next()
+                end, { buffer = bufnr })
+                vim.keymap.set('n', '<leader>dk', function ()
+                    vim.diagnostic.goto_prev()
+                end, { buffer = bufnr })
             end)
 
             lsp_zero.set_sign_icons = false

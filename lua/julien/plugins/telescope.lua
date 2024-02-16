@@ -49,12 +49,13 @@ return {
                         respect_gitignore = false,
                         hidden = true,
                         grouped = true,
-                        previewer = false,
+                        previewer = true,
                     })
                 end,
                 desc = 'Open telescope file browser.'
             },
             { '<leader>gs', function() require('telescope.builtin').git_status() end, desc = 'Open telescope git status.' },
+            { '<leader>ts', function() require('telescope.builtin').treesitter() end, desc = 'Open telescope treesitter.' },
         }
     },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },

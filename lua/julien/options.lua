@@ -20,3 +20,7 @@ vim.opt.incsearch = true
 
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
+
+-- Windows
+vim.opt.splitright = true
+vim.opt.splitbelow = true

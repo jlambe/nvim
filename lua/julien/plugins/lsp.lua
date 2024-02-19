@@ -78,10 +78,6 @@ return {
                     { name = 'buffer' },
                 }),
                 mapping = cmp.mapping.preset.insert({
-                    -- Select next item in completion window
-                    ['<C-n'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-                    -- Select previous item in completion window
-                    ['<C-p'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
                     -- 'Enter' key to confirm completion
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
                 })

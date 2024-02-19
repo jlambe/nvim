@@ -3,6 +3,8 @@ local s = ls.snippet
 local sn = ls.snippet_node
 local i = ls.insert_node
 local d = ls.dynamic_node
+local c = ls.choice_node
+local t = ls.text_node
 local extras = require("luasnip.extras")
 local l = extras.lambda
 local fmt = require('luasnip.extras.fmt').fmt
@@ -19,6 +21,12 @@ ls.add_snippets(
         s('pubf', fmt('public function {}({}): {}\n{{\n    {}\n}}', { i(1), i(2), i(3, 'void'), i(4) })),
         s('prif', fmt('private function {}({}): {}\n{{\n    {}\n}}', { i(1), i(2), i(3, 'void'), i(4) })),
         s('prof', fmt('protected function {}({}): {}\n{{\n    {}\n}}', { i(1), i(2), i(3, 'void'), i(4) })),
+
+        -- Magic methods
+        s('__con', fmt('{} function __construct(\n    {}\n) {{\n{}}}', { c(1, { t('public'), t('private') }), i(2), i(3) })),
+        s('__des', fmt('public function __destruct({})\n{{\n    {}\n}}', { i(1), i(2) })),
+        s('__toString', fmt('public function __toString(): string\n{{\n    {}\n}}', { i(1) })),
+        s('__invoke', fmt('public function __invoke({})\n{{\n    {}\n}}', { i(1), i(2) })),
 
         -- Static methods
         s('pubsf', fmt('public static function {}({}): {}\n{{\n    {}\n}}', { i(1), i(2), i(3, 'self'), i(4) })),

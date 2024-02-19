@@ -15,6 +15,6 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Quickfix
-vim.keymap.set('n', '<leader>cn', ':cnext<CR>')
-vim.keymap.set('n', '<leader>cp', ':cprev<CR>')
-vim.keymap.set('n', '<leader>cc', ':cclose<CR>')
+vim.keymap.set('n', '<leader>cn', '<cmd>cnext<CR>')
+vim.keymap.set('n', '<leader>cp', '<cmd>cprev<CR>')
+vim.keymap.set('n', '<leader>cc', '<cmd>cclose<CR>')

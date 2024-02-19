@@ -56,6 +56,7 @@ return {
             },
             { '<leader>gs', function() require('telescope.builtin').git_status() end, desc = 'Open telescope git status.' },
             { '<leader>ts', function() require('telescope.builtin').treesitter() end, desc = 'Open telescope treesitter.' },
+            { '<leader>sh', function() require('telescope.builtin').help_tags() end, desc = 'Open telescope and search help...' },
         }
     },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },

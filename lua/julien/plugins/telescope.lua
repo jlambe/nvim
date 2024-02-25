@@ -4,8 +4,7 @@ return {
         tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' },
         opts = {
-            defaults = {
-            },
+            defaults = {},
             extensions = {
                 fzf = {
                     fuzzy = true,                   -- false will only do exact matching
@@ -14,7 +13,8 @@ return {
                     case_mode = 'smart_case',       -- or "ignore_case" or "respect_case", the default case_mode is "smart_case"
                 },
                 file_browser = {
-                    hijack_netrw = false
+                    hijack_netrw = false,
+                    hidden = true,
                 },
                 ['ui-select'] = {
                     require('telescope.themes').get_dropdown()
@@ -56,7 +56,7 @@ return {
             },
             { '<leader>gs', function() require('telescope.builtin').git_status() end, desc = 'Open telescope git status.' },
             { '<leader>ts', function() require('telescope.builtin').treesitter() end, desc = 'Open telescope treesitter.' },
-            { '<leader>sh', function() require('telescope.builtin').help_tags() end, desc = 'Open telescope and search help...' },
+            { '<leader>sh', function() require('telescope.builtin').help_tags() end,  desc = 'Open telescope and search help...' },
         }
     },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
@@ -65,7 +65,7 @@ return {
         dependencies = {
             'nvim-telescope/telescope.nvim',
             'nvim-lua/plenary.nvim'
-        }
+        },
     },
     {
         'nvim-telescope/telescope-ui-select.nvim',

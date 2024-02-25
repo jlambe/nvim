@@ -32,8 +32,8 @@ ls.add_snippets(
         s('pubsf', fmt('public static function {}({}): {}\n{{\n    {}\n}}', { i(1), i(2), i(3, 'self'), i(4) })),
 
         -- Templates
-        s('class', fmt('<?php\n\nnamespace {}\n\n{}class {}\n{{\n    {}\n}}\n', { i(1), i(2), d(3, className), i(4) })),
-        s('interface', fmt('<?php\n\nnamespace {}\n\ninterface {}\n{{\n    {}\n}}\n', { i(1), d(2, className), i(3) })),
+        s('class', fmt('<?php\n\nnamespace {}\n\n{}class {}{}\n{{\n    {}\n}}\n', { i(1), i(2), d(3, className), i(4), i(5) })),
+        s('interface', fmt('<?php\n\nnamespace {}\n\ninterface {}{}\n{{\n    {}\n}}\n', { i(1), d(2, className), i(3), i(4) })),
 
         -- Tests
         s('test', fmt('/** @test */\npublic function it_can_{}(): void\n{{\n    {}\n}}', { i(1), i(2) })),

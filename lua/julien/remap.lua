@@ -2,7 +2,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.keymap.set('n', '<C-p>', vim.cmd.Ex)
+-- Open Netrw
+-- vim.keymap.set('n', '<C-p>', vim.cmd.Ex)
 
 -- Navigate
 vim.keymap.set('n', '<C-d>', '<C-d>zz');

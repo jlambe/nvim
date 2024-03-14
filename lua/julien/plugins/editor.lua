@@ -6,6 +6,14 @@ return {
             options = {
                 theme = 'catppuccin'
             },
+            sections = {
+                lualine_x = {
+                    'codeium#GetStatusString',
+                    'encoding',
+                    'fileformat',
+                    'filetype',
+                }
+            },
         }
     },
     {
@@ -132,7 +140,10 @@ return {
         cmd = 'Codeium',
         build = ':Codeium Auth',
         keys = {
-            { '<C-x>', function () return vim.fn['codeium#Clear']() end, mode = { 'i' }, desc = 'Codeium clear' },
+            { '<C-x>',  function() return vim.fn['codeium#Clear']() end,              mode = { 'i' }, desc = 'Codeium clear' },
+            { '<C-s>l', function() return vim.fn['codeium#CycleCompletions'](1) end,  mode = { 'i' }, desc = 'Codeium next suggestion' },
+            { '<C-s>h', function() return vim.fn['codeium#CycleCompletions'](-1) end, mode = { 'i' }, desc = 'Codeium previous suggestion' },
+            { '<Tab>',  function() return vim.fn['codeium#Accept']() end,             mode = { 'i' }, desc = 'Codeium accept' },
         },
     },
 }

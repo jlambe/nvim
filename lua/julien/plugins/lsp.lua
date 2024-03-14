@@ -15,6 +15,18 @@ return {
                 ensure_installed = { 'ansiblels', 'clangd', 'cssls', 'eslint', 'html', 'intelephense', 'jsonls', 'lua_ls', 'rust_analyzer', 'tsserver', 'yamlls' },
                 handlers = {
                     lsp_zero.default_setup,
+                    lua_ls = function()
+                        require('lspconfig').lua_ls.setup({
+                            single_file_support = true,
+                            settings = {
+                                Lua = {
+                                    workspace = {
+                                        checkThirdParty = false,
+                                    },
+                                },
+                            },
+                        })
+                    end
                 },
             }
         end,
@@ -57,7 +69,7 @@ return {
         end,
     },
     {
-        'neovim/nvim-lspconfig'
+        'neovim/nvim-lspconfig',
     },
     {
         'hrsh7th/cmp-nvim-lsp'
@@ -65,7 +77,7 @@ return {
     {
         'hrsh7th/nvim-cmp',
         dependencies = {
-            'saadparwaiz1/cmp_luasnip'
+            'saadparwaiz1/cmp_luasnip',
         },
         opts = function()
             local cmp = require('cmp')
@@ -74,6 +86,8 @@ return {
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
+                    { name = 'nvim_lua' },
+                    { name = 'codeium', group_index = 1, priority = 100, },
                 }, {
                     { name = 'buffer' },
                 }),

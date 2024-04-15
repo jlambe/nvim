@@ -5,7 +5,7 @@ return {
     priority = 1000,
     opts = {
         flavour = 'frappe',
-        transparent_background = true,
+        transparent_background = false,
         integrations = {
             cmp = true,
             gitsigns = true,
@@ -23,9 +23,5 @@ return {
     },
     config = function()
         vim.cmd.colorscheme('catppuccin-frappe')
-
-        -- Make background transparent
-        vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-        vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
     end
 }

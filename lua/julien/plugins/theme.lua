@@ -4,7 +4,7 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
-        flavour = 'frappe',
+        flavour = 'latte',
         transparent_background = false,
         integrations = {
             cmp = true,
@@ -22,6 +22,6 @@ return {
         }
     },
     config = function()
-        vim.cmd.colorscheme('catppuccin-frappe')
+        vim.cmd.colorscheme('catppuccin-latte')
     end
 }

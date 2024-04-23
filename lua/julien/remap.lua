@@ -19,3 +19,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set('n', '<leader>cn', '<cmd>cnext<CR>zz')
 vim.keymap.set('n', '<leader>cp', '<cmd>cprev<CR>zz')
 vim.keymap.set('n', '<leader>cc', '<cmd>cclose<CR>')
+
+-- Terminal
+vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')

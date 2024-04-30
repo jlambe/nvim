@@ -44,6 +44,7 @@ return {
         'tpope/vim-fugitive',
         keys = {
             { '<leader>gf', '<cmd>Git<cr>', desc = 'Open Git status.' },
+            { '<leader>bl', '<cmd>Git blame<cr>', desc = 'Git blame.' },
         },
     },
     {

@@ -9,3 +9,10 @@ ls.add_snippets(
         s('log', fmt('console.log({});', { i(1) })),
     }
 )
+
+ls.add_snippets(
+    'typescriptreact',
+    {
+        s('log', fmt('console.log({});', { i(1) })),
+    }
+)

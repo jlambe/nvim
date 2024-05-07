@@ -67,23 +67,16 @@ return {
         end
     },
     {
-        'nvim-neo-tree/neo-tree.nvim',
-        branch = 'v3.x',
+        'nvim-tree/nvim-tree.lua',
+        lazy = false,
         dependencies = {
-            'nvim-lua/plenary.nvim',
-            'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
-            'MunifTanjim/nui.nvim',
-            -- '3rd/image.nvim', -- Optional image support in preview window: See `# Preview Mode` for more information
+            'nvim-tree/nvim-web-devicons',
         },
-        opts = {
-            buffers = {
-                follow_current_file = {
-                    enabled = true,
-                }
-            }
-        },
+        config = function()
+            require('nvim-tree').setup()
+        end,
         keys = {
-            { '<C-p>', '<cmd>Neotree reveal<cr>', desc = 'Open Neotree.' },
+            { '<C-p>', function() require('nvim-tree.api').tree.toggle({ find_file = true }) end, desc = 'Toggle NvimTree.' },
         }
     },
     {

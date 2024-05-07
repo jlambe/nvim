@@ -13,8 +13,8 @@ return {
             native_lsp = {
                 enabled = true,
             },
-            neotree = true,
             notify = true,
+            nvimtree = true,
             treesitter = true,
             telescope = {
                 enabled = true,

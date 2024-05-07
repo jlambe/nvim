@@ -72,9 +72,11 @@ return {
         dependencies = {
             'nvim-tree/nvim-web-devicons',
         },
-        config = function()
-            require('nvim-tree').setup()
-        end,
+        opts = {
+            view = {
+                centralize_selection = true,
+            },
+        },
         keys = {
             { '<C-p>', function() require('nvim-tree.api').tree.toggle({ find_file = true }) end, desc = 'Toggle NvimTree.' },
         }

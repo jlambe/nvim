@@ -21,6 +21,10 @@ vim.opt.incsearch = true
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 
+-- Netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Windows
 vim.opt.splitright = true
 vim.opt.splitbelow = true

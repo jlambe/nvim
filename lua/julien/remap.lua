@@ -22,3 +22,6 @@ vim.keymap.set('n', '<leader>cc', '<cmd>cclose<CR>')
 
 -- Terminal
 vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
+
+-- Tmux Sessionizer
+vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')

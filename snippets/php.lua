@@ -35,6 +35,7 @@ ls.add_snippets(
         s('class', fmt('<?php\n\nnamespace {}\n\n{}class {}{}\n{{\n    {}\n}}\n', { i(1), i(2), d(3, className), i(4), i(5) })),
         s('interface', fmt('<?php\n\nnamespace {}\n\ninterface {}{}\n{{\n    {}\n}}\n', { i(1), d(2, className), i(3), i(4) })),
         s('trait', fmt('<?php\n\nnamespace {}\n\ntrait {}\n{{\n    {}\n}}\n', { i(1), d(2, className), i(3) })),
+        s('enum', fmt('<?php\n\nnamespace {}\n\nenum {}{}\n{{\n    case {}\n}}\n', { i(1), d(2, className), c(3, { t(''), t(': string') }), i(4) })),
 
         -- Tests
         s('test', fmt('{}\npublic function it_can_{}(): void\n{{\n    {}\n}}', { c(1, { t('#[Test]'), t('/** @test */') }), i(2), i(3) })),

@@ -39,5 +39,8 @@ ls.add_snippets(
 
         -- Tests
         s('test', fmt('{}\npublic function it_can_{}(): void\n{{\n    {}\n}}', { c(1, { t('#[Test]'), t('/** @test */') }), i(2), i(3) })),
+
+        -- Declare
+        s('strict', fmt('declare(strict_types=1);{}', { i(1) })),
     }
 )

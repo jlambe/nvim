@@ -76,6 +76,9 @@ return {
             view = {
                 centralize_selection = true,
             },
+            hijack_directories = {
+                auto_open = false,
+            },
         },
         keys = {
             { '<C-p>', function() require('nvim-tree.api').tree.toggle({ find_file = true }) end, desc = 'Toggle NvimTree.' },

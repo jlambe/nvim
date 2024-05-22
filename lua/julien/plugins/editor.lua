@@ -143,6 +143,14 @@ return {
         }
     },
     {
+        -- @TOTO: look at tpope/vim-dispatch as alternative...
+        'vim-test/vim-test',
+        keys = {
+            { '<leader>t', '<cmd>TestNearest<cr>', desc = 'Run nearest test from cursor.' },
+            { '<leader>l', '<cmd>TestLast<cr>', desc = 'Run last test.' },
+        },
+    },
+    {
         'Exafunction/codeium.vim',
         event = 'BufEnter',
         cmd = 'Codeium',

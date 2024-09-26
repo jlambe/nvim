@@ -45,6 +45,7 @@ return {
         keys = {
             { '<leader>gf', '<cmd>Git<cr>',       desc = 'Open Git status.' },
             { '<leader>bl', '<cmd>Git blame<cr>', desc = 'Git blame.' },
+            { '<leader>gh', '<cmd>Git log -p -- %<cr>', desc = 'Git history of current file.' },
         },
     },
     {

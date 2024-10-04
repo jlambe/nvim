@@ -53,11 +53,13 @@ MyTreesitter = function(bufnr)
     end
 end
 
-local phpDoc = function()
+-- opts.prompt: string used for input prompt
+-- opts.url: function receiving the input value as parameter and must return url
+local select_or_input = function(opts)
     local word
-    local visual_mode = vim.fn.mode() == "v"
+    local is_visual_mode = vim.fn.mode() == "v"
 
-    if visual_mode == true then
+    if is_visual_mode == true then
         local previous_saved_value_on_register = vim.fn.getreg("v")
         -- yank current visual selection on register "v"
         vim.cmd([[noautocmd sil norm! "vy]])
@@ -69,14 +71,34 @@ local phpDoc = function()
         word = selected_value_from_register
     else
         vim.ui.input({
-            prompt = "PHP Documentation > "
+            prompt = opts.prompt or "Search > "
         }, function (input)
-            word = string.gsub(input, "-", "_")
+            word = input
         end)
     end
 
-    local url = vim.uri_encode("https://php.net/" .. word)
-    vim.ui.open(url)
+    if word then
+       vim.ui.open(opts.url(word))
+    end
+end
+
+local phpDoc = function()
+    select_or_input({
+        prompt = "Search PHP > ",
+        url = function(input)
+            local word = string.gsub(input, "-", "_")
+            return vim.uri_encode("https://php.net/" .. word)
+        end
+    })
+end
+
+local mozillaDoc = function()
+    select_or_input({
+        prompt = "Search Mozilla > ",
+        url = function (input)
+            return "https://developer.mozilla.org/search?q=" .. vim.uri_encode(input)
+        end
+    })
 end
 
 TestSelect = function()
@@ -91,4 +113,5 @@ vim.keymap.set("n", "<leader>rp", runPhpUnit)
 vim.keymap.set("n", "<leader>rpp", runParatest)
 vim.keymap.set("n", "<leader>rps", runPhpStan)
 
-vim.keymap.set({"n", "v"}, "<leader>pf", phpDoc)
+vim.keymap.set({"n", "v"}, "<leader>sp", phpDoc)
+vim.keymap.set({"n", "v"}, "<leader>sm", mozillaDoc)

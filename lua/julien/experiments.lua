@@ -54,11 +54,36 @@ MyTreesitter = function(bufnr)
 end
 
 local phpDoc = function()
-    vim.ui.input({
-        prompt = "PHP Documentation > "
-    }, function (input)
-        -- TODO: might need to convert hyphens to underscores
-        vim.ui.open("https://php.net/" .. input)
+    local word
+    local visual_mode = vim.fn.mode() == "v"
+
+    if visual_mode == true then
+        local previous_saved_value_on_register = vim.fn.getreg("v")
+        -- yank current visual selection on register "v"
+        vim.cmd([[noautocmd sil norm! "vy]])
+        local selected_value_from_register = vim.fn.getreg("v")
+
+        -- reset register "v" previous value (if any)
+        vim.fn.setreg("v", previous_saved_value_on_register)
+
+        word = selected_value_from_register
+    else
+        vim.ui.input({
+            prompt = "PHP Documentation > "
+        }, function (input)
+            word = string.gsub(input, "-", "_")
+        end)
+    end
+
+    local url = vim.uri_encode("https://php.net/" .. word)
+    vim.ui.open(url)
+end
+
+TestSelect = function()
+    vim.ui.select({'Option A', 'Option B', 'Option C'}, {
+        prompt = "Pick one option:",
+    }, function (choice)
+        print(choice)
     end)
 end
 
@@ -66,4 +91,4 @@ vim.keymap.set("n", "<leader>rp", runPhpUnit)
 vim.keymap.set("n", "<leader>rpp", runParatest)
 vim.keymap.set("n", "<leader>rps", runPhpStan)
 
-vim.keymap.set("n", "<leader>pf", phpDoc)
+vim.keymap.set({"n", "v"}, "<leader>pf", phpDoc)

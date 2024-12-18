@@ -12,7 +12,7 @@ return {
 
             return {
                 -- Define list of LSP servers to install
-                ensure_installed = { 'ansiblels', 'clangd', 'cssls', 'eslint', 'html', 'intelephense', 'jsonls', 'lua_ls', 'rust_analyzer', 'tsserver', 'yamlls' },
+                ensure_installed = { 'ansiblels', 'clangd', 'cssls', 'eslint', 'html', 'intelephense', 'jsonls', 'lua_ls', 'rust_analyzer', 'ts_ls', 'yamlls' },
                 handlers = {
                     lsp_zero.default_setup,
                     lua_ls = function()

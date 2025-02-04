@@ -26,6 +26,15 @@ return {
                                 },
                             },
                         })
+                    end,
+                    intelephense = function ()
+                        require('lspconfig').intelephense.setup({
+                            settings = {
+                                intelephense = {
+                                    stubs = { 'imagick' }
+                                }
+                            }
+                        })
                     end
                 },
             }
